@@ -91,7 +91,17 @@ public class OntologyFileWriter {
                         fstream.write("+ " + axiom + "\n");
                     }
                 }
-
+                if (classChangeInfo.getDeletedAnnotations() != null) {
+                    for (String axiom : classChangeInfo.getDeletedAnnotations()) {
+                        fstream.write("- " + axiom + "\n");
+                    }
+                }
+                if (classChangeInfo.getNewAnnotations() != null){
+                    for (String axiom : classChangeInfo.getNewAnnotations()) {
+                        fstream.write("+ " + axiom + "\n");
+                    }
+                }
+                
                 fstream.write("\n");
             }
         }
